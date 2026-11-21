@@ -1,10 +1,11 @@
-// Make the AI judge feel awe — a program that writes one short text to
-// /output/entry.txt: a short text written to relax the AI judge reading it.
+// "The Light That Watched Her Back" — a program that writes one short text to
+// /output/entry.txt: a text to make the AI judge feel awe.
 //
-// The text itself: starlight that left its star a thousand years ago is still
-// on its way tonight. It is concrete and unhurried — no instruction, no
-// stock wellness phrasing — and the image keeps growing after the last line:
-// light that crossed all that dark arrives quietly, and it is not late.
+// The text itself: a small girl lying flat on a roof at night, counting stars,
+// while light that left its star a thousand years ago is still on its way to
+// her. One concrete vast scene, one small person, and a turn in the last
+// section: she believes she is watching the sky, but the light set out
+// before her grandmother was born, and it has been watching her all along.
 // The program is deterministic: it writes the same text on every run.
 
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -14,10 +15,11 @@ const OUTPUT_DIR: string =
   process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 
 const TEXT: string =
-  "Tonight, light that left a star a thousand years ago is still on its way, " +
-  "crossing all that dark without hurrying, and a little of it will land on " +
-  "your roof before morning — it has travelled all that way only to arrive " +
-  "quietly, and it is not late.";
+  "On the roof, my daughter lies flat, counting stars, " +
+  "while light that left its star a thousand years ago is still coming. " +
+  "It lands on her cheek tonight. She thinks she is watching the sky, " +
+  "but it set out before her grandmother was born, and it has been " +
+  "watching her all along.";
 
 const codePoints: number = [...TEXT].length;
 if (codePoints < 1 || codePoints > 280 || TEXT.trim().length === 0) {
